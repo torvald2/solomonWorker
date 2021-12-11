@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 
 
 async function RunJob() {
-	if(process.env.ENV!="prod") {
+	if(process.env.ENV=="dev") {
 		dotenv.config()
 		console.log("Using dotenv")
 		console.log(process.env.DB_CONNECTION_STRING)
