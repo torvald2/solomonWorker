@@ -7,7 +7,8 @@ import dotenv from 'dotenv'
 async function RunJob() {
 	try {
 		dotenv.config()
-
+		console.log("Using dotenv")
+		console.log(process.env.DB_CONNECTION_STRING)
 	}
 	catch {
 		console.log('Using real env')
