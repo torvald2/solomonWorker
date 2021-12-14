@@ -24,7 +24,7 @@ export  class PriceGetter{
 			const quote = product.symbol.split('/')[0]
 			const tokens =  this.tokenList.GetToken(quote.toLowerCase())
 			if (tokens[0] ){
-				if (price.price && price.confidence &&  !tokens[0].isStock){
+				if (price.price && price.confidence){
 					await this.mongoClient.InsertPrice(tokens[0],price.price, product.symbol)
 				}
 			} else {
@@ -33,7 +33,7 @@ export  class PriceGetter{
 					symbol: product.symbol,
 					image: "",
 					address:"",
-					isStock:false
+					tags:[]
 				}
 				if (price.price && price.confidence){
 					await this.mongoClient.InsertPrice(token,price.price, product.symbol)

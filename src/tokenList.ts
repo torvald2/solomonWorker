@@ -5,7 +5,7 @@ export interface Token {
     symbol:string,
     image:string,
 	address:string,
-	isStock:boolean,
+	tags:String[],
 }
 
 export  class TokenList{
@@ -16,19 +16,20 @@ export  class TokenList{
 	async LoadData(){
 		const res = await axios.get('https://raw.githubusercontent.com/solana-labs/token-list/main/src/tokens/solana.tokenlist.json')
 		for (const token of res.data.tokens){
-			let isStock = false
-            token.tags.forEach((el:string) => {
-				if (el == "tokenized-stock"){
-					isStock = true
-				}
-				
-			})
+			let tags = []
+			if (token.tags){
+				tags = token.tags
+
+			}
+
+			
+           
 			this.data.push({
 				name:token.name,
 				symbol:token.symbol,
 				image:token.logoURI,
 				address: token.address,
-				isStock:isStock
+				tags:tags
 
 			})
 		}
