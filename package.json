@@ -62,7 +62,7 @@
   "dependencies": {
     "@pythnetwork/client": "^2.5.1",
     "@solana/web3.js": "^1.31.0",
-    "axios": "^0.24.0",
+    "axios": "^1.2.6",
     "dotenv": "^10.0.0",
     "mongodb": "^4.2.1",
     "sitka": "^1.0.5"
